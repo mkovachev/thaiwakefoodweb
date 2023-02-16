@@ -7,7 +7,7 @@ interface HomeProps {
   menu?: Menu;
 }
 
-export const HomeViewCard = ({ menu }: HomeProps) => {
+export const Home = ({ menu }: HomeProps) => {
   const { openToast } = useToast();
   const toast = ToastMessages();
 

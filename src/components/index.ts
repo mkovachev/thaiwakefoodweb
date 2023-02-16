@@ -1,1 +1,1 @@
-export * from './HomeViewCard'
+export * from './Home'

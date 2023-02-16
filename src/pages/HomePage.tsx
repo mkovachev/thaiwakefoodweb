@@ -1,7 +1,7 @@
 import { KeyboardBackspace } from "@mui/icons-material";
 import { Box, styled, Typography } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
-import { HomeViewCard } from "../components";
+import { Home } from "../components";
 import { useGetMenu } from "../hooks";
 import { Link, PageBody } from "../shared/components";
 
@@ -18,9 +18,10 @@ interface HomePageProps {
 
 export const HomePage = ({ backToLink, backToTitle }: HomePageProps) => {
   const params = useParams();
-  const { id } = params;
-  const { data, isLoading } = useGetMenu({ id });
+  const { data, isLoading } = useGetMenu();
   const backUrl = backToLink instanceof Function ? backToLink(params) : backToLink;
+
+  console.log(data)
 
   return (
     <PageBody>
@@ -32,7 +33,7 @@ export const HomePage = ({ backToLink, backToTitle }: HomePageProps) => {
         </Navigation>
       }
       <Typography variant="h1">Home</Typography>
-      {!isLoading && <HomeViewCard menu={data} />}
+      {!isLoading && <Home menu={data} />}
     </PageBody>
   )
 }
