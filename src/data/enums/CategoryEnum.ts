@@ -1,5 +1,5 @@
 export enum CategoryEnum {
-  DRINKS = 'DRINKS',
-  FAST_FOOD = 'FAST_FOOD',
-  NONE = 'NONE'
+  DRINKS = 'Drinks',
+  FAST_FOOD = 'Fast Food',
+  NONE = 'None'
 };
