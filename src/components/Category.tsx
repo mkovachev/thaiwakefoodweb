@@ -8,7 +8,7 @@ export interface CategoriesNavbarProps {
 export const Category = ({ category }: CategoriesNavbarProps) => {
 
   return (
-    <ImageListItemStyled key='images/americano.jpg'>
+    <ImageListItemStyled key={category.id}>
       <ImageListItemBar sx={{ background: 'transparent' }}
         position='top'
         title={category.title}

@@ -10,12 +10,12 @@ const Navigation = styled(Box)(({ theme }) => ({
 }));
 
 
-interface HomePageProps {
+interface OrderPageProps {
   backToLink?: string | ((params: Readonly<Params<string>>) => string);
   backToTitle?: string;
 }
 
-export const HomePage = ({ backToLink, backToTitle }: HomePageProps) => {
+export const OrderPage = ({ backToLink, backToTitle }: OrderPageProps) => {
   const params = useParams()
   const backUrl = backToLink instanceof Function ? backToLink(params) : backToLink
 

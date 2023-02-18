@@ -1,3 +1,4 @@
 export * from './Home'
-export * from './Navbar'
 export * from './Category'
+export * from './Food'
+export * from './Footer'
