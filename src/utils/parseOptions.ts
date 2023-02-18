@@ -1,0 +1,1 @@
+export const parseOptions = (data: string) => data.split("/")

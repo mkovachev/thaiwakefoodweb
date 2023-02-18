@@ -1,39 +1,23 @@
-import { Grid, CardHeader, CardContent, Typography } from "@mui/material";
-import { Menu } from "../data";
-import { useToast } from "../providers";
-import { ToastMessages } from "../shared";
+import { Grid } from "@mui/material";
+import { FoodItem } from "../data";
+import { useGetMenu } from "../hooks";
+import { FoodViewCard } from "./FoodViewCard";
 
-interface HomeProps {
-  menu?: Menu;
-}
 
-export const Home = ({ menu }: HomeProps) => {
-  const { openToast } = useToast();
-  const toast = ToastMessages();
+export const Home = () => {
+  const { data, isLoading } = useGetMenu()
 
-  if (!menu) {
+  if (isLoading || !data) {
     return null;
   }
 
   return (
-    <Grid container>
-      <CardHeader title="Food Menu" />
-      <CardContent>
-        <Grid container mb={2} spacing={2}>
-          <Grid item sm={3}>
-            <Typography></Typography>
-          </Grid>
-          <Grid item sm={3}>
-            <Typography></Typography>
-          </Grid>
-          <Grid item sm={3}>
-            <Typography></Typography>
-          </Grid>
-          <Grid item sm={3}>
-            <Typography></Typography>
-          </Grid>
+    <Grid container spacing={1}>
+      {data?.foodItems.map((foodItem: FoodItem, index: number) =>
+        <Grid item sm={2} md={6} key={index}>
+          <FoodViewCard foodItem={foodItem} />
         </Grid>
-      </CardContent>
+      )}
     </Grid>
   )
 

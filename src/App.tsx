@@ -1,4 +1,6 @@
+import { Box } from "@mui/material"
 import { Route, Routes } from "react-router-dom"
+import { Navbar } from "./components"
 import { HomePage } from "./pages/HomePage"
 import { ReactQueryProvider, ToastProvider } from "./providers"
 
@@ -6,15 +8,16 @@ import { ReactQueryProvider, ToastProvider } from "./providers"
 function App() {
 
   return (
-    <div className="App">
+    <Box>
       <ReactQueryProvider>
         <ToastProvider>
+          <Navbar />
           <Routes>
             <Route path="*" element={<HomePage />} />
           </Routes>
         </ToastProvider>
       </ReactQueryProvider>
-    </div>
+    </Box>
   )
 }
 

@@ -1,11 +1,11 @@
 import { CategoryEnum } from "../enums/CategoryEnum"
 
 export interface FoodItem {
-  _id?: string
-  name: string
+  id: string
+  title: string
   description: string
   category: CategoryEnum
-  options: string[]
+  option: string
   price: string
-  imgUrl: string
+  image: string
 }

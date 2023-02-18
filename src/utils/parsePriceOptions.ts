@@ -1,0 +1,1 @@
+export const parsePriceOptions = (data: string) => data.split("/").map(price => Number(price))

@@ -1,15 +1,21 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
-import { Menu } from '../data/models';
+import { MenuModel } from '../data';
+import { parseData } from '../utils/parseData';
 
-const getMenu = async (): Promise<Menu> => {
-  const id = '3a44ff49-2e5b-41f3-b4e6-2931277d5564'
-  const url = `https://sheet.best/api/sheets/${id}`
-  return await axios.get(url);
+const getMenu = async (): Promise<MenuModel> => {
+  const url = `${import.meta.env.VITE_SHEETSON_URL}/${import.meta.env.VITE_SPREADSHEET_NAME}`
+  const params = {
+    apiKey: import.meta.env.VITE_API_KEY,
+    spreadsheetId: import.meta.env.VITE_SPREADSHEET_ID
+  }
+
+  const res = await axios.get(url, { params })
+  return parseData(res.data.results);
 };
 
 export const useGetMenu = () => {
-  return useQuery<Menu, Error>(
+  return useQuery<MenuModel, Error>(
     ['menu'],
     () => getMenu()
   )
