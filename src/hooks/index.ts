@@ -1,2 +1,2 @@
 export * from './useGetAllFoodItems'
-export * from './useGetFeatured'
+export * from './useGetCategoryList'

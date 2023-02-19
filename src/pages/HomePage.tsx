@@ -2,9 +2,8 @@ import { KeyboardBackspace } from "@mui/icons-material";
 import { Box, styled, useMediaQuery } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
 import { Home, MobileHome } from "../components";
-import { useGetAllFoodItems } from "../hooks";
-import { useGetCategoryList } from "../hooks/useGetCategoryList";
-import { Link, PageBody } from "../shared/components";
+import { useGetAllFoodItems, useGetCategoryList } from "../hooks";
+import { Link, PageBody } from "../shared";
 import { theme } from "../theme/theme";
 
 
@@ -24,6 +23,8 @@ export const HomePage = ({ backToLink, backToTitle }: HomePageProps) => {
 
   const { data: categories, isLoading: isLoadingCategories } = useGetCategoryList()
   const { data: foodItems, isLoading: isLoadingAllFoodItems } = useGetAllFoodItems()
+
+  console.log(categories)
 
   const mobileScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const desktopScreen = useMediaQuery(theme.breakpoints.up('sm'))

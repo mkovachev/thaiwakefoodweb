@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { useGetCategoryList } from "../hooks/useGetCategoryList"
+import { useGetCategoryList } from "../hooks"
 import { parseCategoryPage } from "../utils"
 
 

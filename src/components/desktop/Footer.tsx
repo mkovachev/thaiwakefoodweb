@@ -32,6 +32,4 @@ const BoxStyled = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'flex-end',
   alignItems: 'center',
-  bottom: 0
-  //position: 'fix',
 }));

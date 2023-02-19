@@ -8,5 +8,4 @@ export interface FoodItem {
   option: string
   price: string
   image: string
-  featured: boolean
 }

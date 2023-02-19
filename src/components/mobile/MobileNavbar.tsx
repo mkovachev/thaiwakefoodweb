@@ -9,14 +9,14 @@ export const MobileNavbar = ({ categories }: CategoriesNavbarProps) => {
 
   return (
     <ImageListStyled gap={2}>
-      {categories.map((category) => (
-        <ImageListItemStyled key={category.id}>
+      {categories.map((category, index) => (
+        <ImageListItemStyled key={index}>
           <ImageListItemBar sx={{ background: 'transparent' }}
             position='top'
             title={category.title}
           />
           <img
-            src={'images/americano.jpg'} //${category.image}
+            src={'images/americano.jpg'}
             alt={category.title}
             loading="lazy" />
         </ImageListItemStyled>
@@ -31,7 +31,6 @@ const ImageListStyled = styled(ImageList)(({ theme }) => ({
   gridAutoFlow: "column",
   gridTemplateColumns: "repeat(auto-fill,minmax(100px,1fr)) !important",
   gridAutoColumns: "minmax(100px, 1fr)",
-  //scrollbarColor: theme.color.yellow
 }));
 
 const ImageListItemStyled = styled(ImageListItem)(({ theme }) => ({

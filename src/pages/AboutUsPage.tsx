@@ -3,7 +3,7 @@ import { Box, styled } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
 import { Favorites } from "../components";
 import { useGetAllFoodItems } from "../hooks";
-import { Link, PageBody } from "../shared/components";
+import { Link, PageBody } from "../shared";
 
 
 const Navigation = styled(Box)(({ theme }) => ({

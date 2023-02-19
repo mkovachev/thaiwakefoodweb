@@ -15,8 +15,8 @@ export const Menu = ({ foodItems }: MenuProps) => {
   //TODO: map price and option in dropdown
   return (
     <ImageList gap={2}>
-      {foodItems?.map((foodItem: FoodItem) =>
-        <ImageListItem key={foodItem.id}>
+      {foodItems?.map((foodItem: FoodItem, index) =>
+        <ImageListItem key={index}>
           <ImageListItemBar sx={{ background: 'transparent' }}
             position='top'
             title={foodItem.title}
@@ -25,7 +25,7 @@ export const Menu = ({ foodItems }: MenuProps) => {
             </IconButton>}
             actionPosition="right" />
           <img
-            src={'images/americano.jpg'} //${foodItem.image}
+            src={'images/americano.jpg'}
             alt={foodItem.title}
             loading="lazy" />
           <ImageListItemBar
