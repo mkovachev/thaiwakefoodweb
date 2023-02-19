@@ -1,0 +1,1 @@
+export const parseCategoryPage = (category: string) => `${category}Page`

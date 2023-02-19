@@ -1,7 +1,6 @@
 import { Box } from "@mui/material"
-import { Route, Routes } from "react-router-dom"
-import { FavoritesPage, HomePage, OrderPage } from "./pages"
 import { ReactQueryProvider, ToastProvider } from "./providers"
+import { RouteList } from "./routes"
 
 
 function App() {
@@ -9,11 +8,7 @@ function App() {
     <Box>
       <ReactQueryProvider>
         <ToastProvider>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
-            <Route path="/orders" element={<OrderPage />} />
-          </Routes>
+          <RouteList />
         </ToastProvider>
       </ReactQueryProvider>
     </Box>

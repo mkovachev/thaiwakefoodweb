@@ -1,7 +1,7 @@
 import { KeyboardBackspace } from "@mui/icons-material";
 import { Box, styled } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
-import { Favorites } from "../components";
+import { ShoppingCart } from "../components";
 import { useGetAllFoodItems } from "../hooks";
 import { Link, PageBody } from "../shared/components";
 
@@ -11,12 +11,12 @@ const Navigation = styled(Box)(({ theme }) => ({
 }));
 
 
-interface FavoritesPageProps {
+interface ShoppingCartPageProps {
   backToLink?: string | ((params: Readonly<Params<string>>) => string);
   backToTitle?: string;
 }
 
-export const FavoritesPage = ({ backToLink, backToTitle }: FavoritesPageProps) => {
+export const ShoppingCartPage = ({ backToLink, backToTitle }: ShoppingCartPageProps) => {
   const params = useParams()
   const backUrl = backToLink instanceof Function ? backToLink(params) : backToLink
   const { data: foodItems, isLoading } = useGetAllFoodItems()
@@ -34,7 +34,7 @@ export const FavoritesPage = ({ backToLink, backToTitle }: FavoritesPageProps) =
           </Link>
         </Navigation>
       }
-      <Favorites foodItems={foodItems} />
+      <ShoppingCart foodItems={foodItems} />
     </PageBody>
   )
 }

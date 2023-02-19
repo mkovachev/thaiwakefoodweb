@@ -1,4 +1,4 @@
-import { CategoryEnum } from "../enums"
+import { CategoryEnum } from "./CategoryEnum"
 
 export interface CategoryItem {
   id: number

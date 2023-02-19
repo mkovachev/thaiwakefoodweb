@@ -1,4 +1,3 @@
-export * from './Home'
-export * from './Category'
-export * from './Food'
-export * from './Footer'
+export * from './desktop'
+export * from './mobile'
+export * from './shared'

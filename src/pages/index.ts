@@ -1,3 +1,4 @@
 export * from './HomePage'
 export * from './FavoritesPage'
-export * from './OrderPage'
+export * from './ShoppingCartPage'
+export * from './AboutUsPage'

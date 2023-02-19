@@ -1,7 +1,8 @@
 import { KeyboardBackspace } from "@mui/icons-material";
 import { Box, styled } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
-import { Home } from "../components";
+import { Favorites } from "../components";
+import { useGetAllFoodItems } from "../hooks";
 import { Link, PageBody } from "../shared/components";
 
 
@@ -10,14 +11,19 @@ const Navigation = styled(Box)(({ theme }) => ({
 }));
 
 
-interface OrderPageProps {
+interface AboutUsPageProps {
   backToLink?: string | ((params: Readonly<Params<string>>) => string);
   backToTitle?: string;
 }
 
-export const OrderPage = ({ backToLink, backToTitle }: OrderPageProps) => {
+export const AboutUsPage = ({ backToLink, backToTitle }: AboutUsPageProps) => {
   const params = useParams()
   const backUrl = backToLink instanceof Function ? backToLink(params) : backToLink
+  const { data: foodItems, isLoading } = useGetAllFoodItems()
+
+  if (isLoading || !foodItems) {
+    return null;
+  }
 
   return (
     <PageBody>
@@ -28,7 +34,7 @@ export const OrderPage = ({ backToLink, backToTitle }: OrderPageProps) => {
           </Link>
         </Navigation>
       }
-      <Home />
+      <Favorites foodItems={foodItems} />
     </PageBody>
   )
 }

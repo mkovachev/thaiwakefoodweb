@@ -5,7 +5,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import { useState } from "react";
 
 
-export const Footer = () => {
+export const MobileFooter = () => {
   const [value, setValue] = useState(0);
 
   return (

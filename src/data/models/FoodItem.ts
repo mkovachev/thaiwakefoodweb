@@ -1,4 +1,4 @@
-import { CategoryEnum } from "../enums/CategoryEnum"
+import { CategoryEnum } from "./CategoryEnum"
 
 export interface FoodItem {
   id: number
