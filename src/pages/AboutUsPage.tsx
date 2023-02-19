@@ -1,7 +1,6 @@
 import { KeyboardBackspace } from "@mui/icons-material";
-import { Box, styled } from "@mui/material";
+import { Box, styled, Typography } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
-import { Favorites } from "../components";
 import { useGetAllFoodItems } from "../hooks";
 import { Link, PageBody } from "../shared";
 
@@ -22,7 +21,11 @@ export const AboutUsPage = ({ backToLink, backToTitle }: AboutUsPageProps) => {
   const { data: foodItems, isLoading } = useGetAllFoodItems()
 
   if (isLoading || !foodItems) {
-    return null;
+    return (
+      <Box>
+        <Typography>No items</Typography>
+      </Box>
+    )
   }
 
   return (
@@ -34,7 +37,6 @@ export const AboutUsPage = ({ backToLink, backToTitle }: AboutUsPageProps) => {
           </Link>
         </Navigation>
       }
-      <Favorites foodItems={foodItems} />
     </PageBody>
   )
 }

@@ -1,5 +1,5 @@
 import { KeyboardBackspace } from "@mui/icons-material";
-import { Box, styled } from "@mui/material";
+import { Box, styled, Typography } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
 import { Favorites } from "../components";
 import { useGetAllFoodItems } from "../hooks";
@@ -22,7 +22,11 @@ export const FavoritesPage = ({ backToLink, backToTitle }: FavoritesPageProps) =
   const { data: foodItems, isLoading } = useGetAllFoodItems()
 
   if (isLoading || !foodItems) {
-    return null;
+    return (
+      <Box>
+        <Typography>No items</Typography>
+      </Box>
+    )
   }
 
   return (

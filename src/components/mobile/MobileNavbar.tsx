@@ -16,7 +16,7 @@ export const MobileNavbar = ({ categories }: CategoriesNavbarProps) => {
             title={category.title}
           />
           <img
-            src={'images/americano.jpg'}
+            src={`${category.image}`}
             alt={category.title}
             loading="lazy" />
         </ImageListItemStyled>

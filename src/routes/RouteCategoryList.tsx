@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material"
 import { Route, Routes } from "react-router-dom"
 import { useGetCategoryList } from "../hooks"
 import { parseCategoryPage } from "../utils"
@@ -7,7 +8,11 @@ export const RouteCategoryList = () => {
   const { data: categories, isLoading } = useGetCategoryList()
 
   if (isLoading || !categories) {
-    return null
+    return (
+      <Box>
+        <Typography>No items</Typography>
+      </Box>
+    )
   }
 
   return (

@@ -5,13 +5,13 @@ import { RouteCategoryList } from "./RouteCategoryList"
 export const RouteList = () => {
   return (
     <>
-      <RouteCategoryList />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/shoppingcart" element={<ShoppingCartPage />} />
         <Route path="/aboutus" element={<AboutUsPage />} />
       </Routes>
+      <RouteCategoryList />
     </>
   )
 }

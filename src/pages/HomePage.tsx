@@ -1,5 +1,5 @@
 import { KeyboardBackspace } from "@mui/icons-material";
-import { Box, styled, useMediaQuery } from "@mui/material";
+import { Box, styled, Typography, useMediaQuery } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
 import { Home, MobileHome } from "../components";
 import { useGetAllFoodItems, useGetCategoryList } from "../hooks";
@@ -20,17 +20,18 @@ interface HomePageProps {
 export const HomePage = ({ backToLink, backToTitle }: HomePageProps) => {
   const params = useParams()
   const backUrl = backToLink instanceof Function ? backToLink(params) : backToLink
-
   const { data: categories, isLoading: isLoadingCategories } = useGetCategoryList()
   const { data: foodItems, isLoading: isLoadingAllFoodItems } = useGetAllFoodItems()
-
-  console.log(categories)
 
   const mobileScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const desktopScreen = useMediaQuery(theme.breakpoints.up('sm'))
 
   if (isLoadingCategories || !categories || isLoadingAllFoodItems || !foodItems) {
-    return null;
+    return (
+      <Box>
+        <Typography>No items</Typography>
+      </Box>
+    )
   }
 
   return (

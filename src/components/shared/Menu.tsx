@@ -25,7 +25,7 @@ export const Menu = ({ foodItems }: MenuProps) => {
             </IconButton>}
             actionPosition="right" />
           <img
-            src={'images/americano.jpg'}
+            src={`${foodItem.image}`}
             alt={foodItem.title}
             loading="lazy" />
           <ImageListItemBar
