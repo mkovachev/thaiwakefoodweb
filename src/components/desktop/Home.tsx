@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { CategoryItem, FoodItem } from "../../data";
-import { Menu } from "../shared/Menu";
+import { Menu } from "../../ui/Menu";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 

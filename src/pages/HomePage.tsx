@@ -1,10 +1,10 @@
 import { KeyboardBackspace } from "@mui/icons-material";
-import { Box, styled, Typography, useMediaQuery } from "@mui/material";
+import { Box, styled, useMediaQuery } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
 import { Home, MobileHome } from "../components";
 import { useGetAllFoodItems, useGetCategoryList } from "../hooks";
 import { Link, PageBody } from "../shared";
-import { theme } from "../theme/theme";
+import { theme } from "../ui/theme";
 
 
 const Navigation = styled(Box)(({ theme }) => ({

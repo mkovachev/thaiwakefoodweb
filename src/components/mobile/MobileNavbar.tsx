@@ -28,7 +28,6 @@ export const MobileNavbar = ({ categories }: CategoriesNavbarProps) => {
 
 
 const ImageListStyled = styled(ImageList)(({ theme }) => ({
-  background: 'transparent', //theme.colors.yellow
   gridAutoFlow: 'column',
   gridTemplateColumns: 'repeat(auto-fill,minmax(100px,1fr)) !important',
   gridAutoColumns: 'minmax(100px, 1fr)',

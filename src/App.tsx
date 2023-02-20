@@ -1,5 +1,5 @@
 import { Box } from "@mui/material"
-import { ReactQueryProvider, ToastProvider } from "./providers"
+import { MuiThemeProvider, ReactQueryProvider, ToastProvider } from "./providers"
 import { RouteList } from "./routes"
 
 
@@ -7,9 +7,11 @@ function App() {
   return (
     <Box>
       <ReactQueryProvider>
-        <ToastProvider>
-          <RouteList />
-        </ToastProvider>
+        <MuiThemeProvider>
+          <ToastProvider>
+            <RouteList />
+          </ToastProvider>
+        </MuiThemeProvider>
       </ReactQueryProvider>
     </Box>
   )

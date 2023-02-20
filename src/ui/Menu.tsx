@@ -1,8 +1,8 @@
 import { ImageListItem, ImageListItemBar, IconButton, ImageList, styled, useMediaQuery } from "@mui/material";
-import { FoodItem } from "../../data";
-import { parseOptions, parsePriceOptions, parseOptionsWithPrice } from "../../utils";
+import { FoodItem } from "../data";
+import { parseOptions, parsePriceOptions, parseOptionsWithPrice } from "../utils";
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { theme } from "../../theme/theme";
+import { theme } from "./theme";
 
 export interface MenuProps {
   foodItems: FoodItem[]
@@ -49,8 +49,9 @@ export const Menu = ({ foodItems }: MenuProps) => {
 
 const ImageListStyled = styled(ImageList)(({ theme }) => ({
   margin: 'auto',
+  //TODO: mobile not working
   [theme.breakpoints.down('mobile')]: {
-    backgroundColor: '#FE724D'
+    backgroundColor: theme.colors.yellow
   },
 }));
 
