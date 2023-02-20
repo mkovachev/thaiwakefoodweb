@@ -22,11 +22,7 @@ export const FavoritesPage = ({ backToLink, backToTitle }: FavoritesPageProps) =
   const { data: foodItems, isLoading } = useGetAllFoodItems()
 
   if (isLoading || !foodItems) {
-    return (
-      <Box>
-        <Typography>No items</Typography>
-      </Box>
-    )
+    return null
   }
 
   return (

@@ -1,6 +1,6 @@
 import { ExtendedTypographyOptions } from '@mui/material';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
-import { color } from './color';
+import { colors } from './colors';
 
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
@@ -29,72 +29,72 @@ export const typography: ExtendedTypographyOptions = {
     fontWeight: 400,
     fontSize: '1rem',
     lineHeight: '1.125rem',
-    color: color.black,
+    color: colors.black,
   },
   body2: {
     fontWeight: 400,
     fontSize: '.875rem',
     lineHeight: '1.125rem',
-    color: color.black,
+    color: colors.black,
   },
   h1: {
     fontWeight: 500,
     fontSize: '2.5rem',
     lineHeight: '3.75rem',
-    color: color.black,
+    color: colors.black,
   },
   h2: {
     fontWeight: 500,
     fontSize: '2rem',
     lineHeight: '3rem',
-    color: color.black,
+    color: colors.black,
   },
   h3: {
     fontWeight: 500,
     fontSize: '1.5rem',
     lineHeight: '2.25rem',
-    color: color.black,
+    color: colors.black,
   },
   h4: {
     fontWeight: 500,
     fontSize: '1.25rem',
     lineHeight: '1.5rem',
-    color: color.black,
+    color: colors.black,
   },
   h5: {
     fontWeight: 500,
     fontSize: '1rem',
     lineHeight: '1.5rem',
-    color: color.black,
+    color: colors.black,
   },
   h6: {
     fontWeight: 400,
     fontSize: '.875rem',
     lineHeight: '1.125rem',
-    color: color.black,
+    color: colors.black,
   },
   subtitle1: {
     fontWeight: 500,
     fontSize: '1.25rem',
     lineHeight: '1.5rem',
-    color: color.grey,
+    color: colors.grey,
   },
   subtitle2: {
     fontWeight: 500,
     fontSize: '.875rem',
     lineHeight: '1.125rem',
-    color: color.grey,
+    color: colors.grey,
   },
   primaryNumber: {
     fontWeight: 600,
     fontSize: '2rem',
     lineHeight: '2rem',
-    color: color.black,
+    color: colors.black,
   },
   secondaryNumber: {
     fontWeight: 500,
     fontSize: '1.75rem',
     lineHeight: '2.625rem',
-    color: color.black,
+    color: colors.black,
   },
 };

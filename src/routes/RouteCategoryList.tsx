@@ -8,11 +8,7 @@ export const RouteCategoryList = () => {
   const { data: categories, isLoading } = useGetCategoryList()
 
   if (isLoading || !categories) {
-    return (
-      <Box>
-        <Typography>No items</Typography>
-      </Box>
-    )
+    return null
   }
 
   return (

@@ -1,7 +1,7 @@
 interface AugmentedShape {
-  borderRadiusBox: number | string;
-  borderRadiusCard: number | string;
-  borderRadiusButton: number | string;
+  borderRadiusBox: number | string
+  borderRadiusCard: number | string
+  borderRadiusButton: number | string
 }
 
 type AugmentedShapeOptions = Partial<AugmentedShape>;

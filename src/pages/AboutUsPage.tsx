@@ -21,11 +21,7 @@ export const AboutUsPage = ({ backToLink, backToTitle }: AboutUsPageProps) => {
   const { data: foodItems, isLoading } = useGetAllFoodItems()
 
   if (isLoading || !foodItems) {
-    return (
-      <Box>
-        <Typography>No items</Typography>
-      </Box>
-    )
+    return null
   }
 
   return (

@@ -1,5 +1,5 @@
 import { KeyboardBackspace } from "@mui/icons-material";
-import { Box, styled, Typography } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import { Params, useParams } from "react-router-dom";
 import { ShoppingCart } from "../components";
 import { useGetAllFoodItems } from "../hooks";
@@ -22,11 +22,7 @@ export const ShoppingCartPage = ({ backToLink, backToTitle }: ShoppingCartPagePr
   const { data: foodItems, isLoading } = useGetAllFoodItems()
 
   if (isLoading || !foodItems) {
-    return (
-      <Box>
-        <Typography>No items</Typography>
-      </Box>
-    )
+    return null
   }
 
   return (

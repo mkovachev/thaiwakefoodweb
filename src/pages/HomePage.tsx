@@ -27,11 +27,7 @@ export const HomePage = ({ backToLink, backToTitle }: HomePageProps) => {
   const desktopScreen = useMediaQuery(theme.breakpoints.up('sm'))
 
   if (isLoadingCategories || !categories || isLoadingAllFoodItems || !foodItems) {
-    return (
-      <Box>
-        <Typography>No items</Typography>
-      </Box>
-    )
+    return null
   }
 
   return (

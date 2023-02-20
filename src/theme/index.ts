@@ -1,3 +1,5 @@
-export * from './color'
+export * from './colors'
 export * from './typography'
 export * from './shape'
+export * from './theme'
+export * from './breakpoints'
