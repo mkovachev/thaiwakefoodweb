@@ -1,9 +1,9 @@
-import { Box } from "@mui/material";
-import { CategoryItem, FoodItem } from "../../data";
+import { Box } from "@mui/material"
+import { CategoryItem, FoodItem } from "../../data"
 import { Menu } from "../shared/Menu";
-import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
-import { FoodItemList } from "./FoodItemList";
+import { Navbar } from "./Navbar"
+import { Footer } from "./Footer"
+import { FoodItemList } from "./FoodItemList"
 
 interface MenuProps {
   categories: CategoryItem[]

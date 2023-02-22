@@ -1,6 +1,7 @@
 export const ToastMessages = () => {
 
   const FOOD_ADDED = 'Food has been successfully added to your favorites.';
+  const FOOD_UPDATED = 'Food has been successfully updated.';
   const FOOD_REMOVED = 'Food has been successfully removed to your favorites.';
 
   // General
@@ -9,6 +10,7 @@ export const ToastMessages = () => {
 
   return {
     FOOD_ADDED,
+    FOOD_UPDATED,
     FOOD_REMOVED,
     UNAUTHORIZED,
     SERVER_ERROR

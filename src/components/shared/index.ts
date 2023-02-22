@@ -1,3 +1,5 @@
 export * from './Menu'
 export * from './Favorites'
 export * from './ShoppingCart'
+export * from './FoodItemDialog'
+export * from './FormItemRemoveDialog'

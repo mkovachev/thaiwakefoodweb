@@ -1,10 +1,10 @@
-import { ImageListItem, ImageListItemBar, ImageList, styled, useMediaQuery, Button, Box, TextField, Autocomplete } from "@mui/material";
-import { FoodItem } from "../../data";
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { theme } from "../../ui/theme";
-import { FoodOptions, SpicyOptions } from "../../shared";
-import { useState } from "react";
-import { Option } from "../../shared/Option";
+import { ImageListItem, ImageListItemBar, ImageList, styled, useMediaQuery, Button, Box, TextField, Autocomplete } from "@mui/material"
+import { FoodItem } from "../../data"
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
+import { theme } from "../../ui/theme"
+import { FoodOptions, SpicyOptions } from "../../shared"
+import { useState } from "react"
+import { Option } from "../../shared/Option"
 
 
 export interface MenuProps {

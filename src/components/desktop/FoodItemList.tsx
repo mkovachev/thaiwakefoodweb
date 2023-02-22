@@ -1,10 +1,11 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Fade, Grid, Modal, styled } from '@mui/material';
-import { FoodItem } from '../../data';
-import { useState } from 'react';
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Typography from '@mui/material/Typography'
+import { Grid, styled } from '@mui/material'
+import { FoodItem } from '../../data'
+import { useState } from 'react'
+import { FoodItemRemoveDialog, FoodItemDialog } from '../shared'
 
 export interface FoodItemListProps {
   foodItems: FoodItem[]
@@ -13,32 +14,42 @@ export interface FoodItemListProps {
 
 export const FoodItemList = ({ foodItems }: FoodItemListProps) => {
   const [open, setOpen] = useState(false)
-  const [image, setImage] = useState('')
-  const [title, setTitle] = useState('')
+  const [openRemove, setOpenRemove] = useState(false)
+  const [foodItem, setFoodItem] = useState<FoodItem>({} as FoodItem)
 
-  const openCardDetails = (image: string, title: string) => {
+  const openCardDetails = (foodItem: FoodItem) => {
+    setFoodItem(foodItem)
     setOpen(true)
-    setImage(image)
-    setTitle(title)
   }
 
   const handleClose = () => {
+    setFoodItem({} as FoodItem)
     setOpen(false)
   }
+
+  const handleRemove = (foodItem: FoodItem) => {
+    //TODO: delete from local storage
+    setOpenRemove(false)
+  }
+
+  const handleCloseRemoveDialog = () => {
+    setOpenRemove(false)
+  }
+
 
   return (
     <Grid container gap={1}>
       {foodItems?.map((foodItem: FoodItem, index) =>
-        <GridItem
+        <Grid
           item
           key={index}
-          onClick={() => foodItem.image && openCardDetails(foodItem.image, foodItem.title)}
+          onClick={() => foodItem.image && openCardDetails(foodItem)}
         >
           <CardStyled elevation={1}>
-            <CardMediaStyled
+            <CardMedia
+              sx={{ height: '10rem' }}
               image={foodItem.image}
-              title={foodItem.title}
-            />
+              title={foodItem.title} />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 #{foodItem.id} {foodItem.title}
@@ -48,33 +59,20 @@ export const FoodItemList = ({ foodItems }: FoodItemListProps) => {
               </Typography>
             </CardContent>
           </CardStyled>
-        </GridItem>
+        </Grid>
       )}
-      <ModalStyled
+      <FoodItemDialog
+        foodItem={foodItem}
         open={open}
-        onClose={handleClose}
-        closeAfterTransition
-      >
-        <Fade in={open} timeout={500}>
-          <img
-            src={image}
-            alt={title}
-          />
-        </Fade>
-      </ModalStyled>
+        onClose={handleClose} />
+      <FoodItemRemoveDialog
+        foodItem={foodItem}
+        open={openRemove}
+        onClose={handleCloseRemoveDialog}
+        onDelete={() => handleRemove(foodItem)} />
     </Grid>
   )
 }
-
-const ModalStyled = styled(Modal)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}))
-
-const GridItem = styled(Grid)(({ theme }) => ({
-
-}))
 
 const CardStyled = styled(Card)(({ theme }) => ({
   height: '100%',
@@ -86,8 +84,4 @@ const CardStyled = styled(Card)(({ theme }) => ({
   '.MuiCardActions-root': {
     marginTop: 'auto',
   }
-}))
-
-const CardMediaStyled = styled(CardMedia)(({ theme }) => ({
-  height: '10rem',
 }))
