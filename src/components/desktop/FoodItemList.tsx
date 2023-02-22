@@ -1,11 +1,8 @@
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Grid, styled } from '@mui/material';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import { FoodItem } from '../../data';
 
 export interface FoodItemListProps {
@@ -15,7 +12,7 @@ export interface FoodItemListProps {
 
 export const FoodItemList = ({ foodItems }: FoodItemListProps) => {
 
-  const addToFavorites = () => {
+  const openCardDetails = () => {
     console.log('added to favorites')
   }
 
@@ -23,8 +20,8 @@ export const FoodItemList = ({ foodItems }: FoodItemListProps) => {
     <GridContainer container gap={1}>
       {foodItems?.map((foodItem: FoodItem, index) =>
         <GridItem item key={index}>
-          <CardStyled>
-            <CardActionArea sx={{ height: '100%' }} onClick={addToFavorites}>
+          <CardActionArea sx={{ height: '100%' }} onClick={openCardDetails}>
+            <CardStyled>
               <CardMediaStyled
                 image={foodItem.image}
                 title={foodItem.title}
@@ -37,11 +34,11 @@ export const FoodItemList = ({ foodItems }: FoodItemListProps) => {
                   {foodItem.description}
                 </Typography>
               </CardContent>
-              <CardActions>
-                <Button onClick={addToFavorites} startIcon={<FavoriteBorderOutlinedIcon />} />
-              </CardActions>
-            </CardActionArea>
-          </CardStyled>
+              {/* <CardActions>
+                <Button onClick={openCardDetails} startIcon={<FavoriteBorderOutlinedIcon />} />
+              </CardActions> */}
+            </CardStyled>
+          </CardActionArea>
         </GridItem>
       )}
     </GridContainer>
