@@ -1,11 +1,12 @@
 import { CategoryEnum } from "./CategoryEnum"
 
-export interface FoodItem {
+export interface FoodItemModel {
   id: number
   title: string
   description: string
   category: CategoryEnum
-  option: string
-  price: string
   image: string
+  options?: string
+  prices: string
+  spicy: string
 }

@@ -2,32 +2,30 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
-import { Button, CardActions, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, styled } from '@mui/material'
+import { Button, CardActions, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, styled } from '@mui/material'
 import { FoodItem } from '../../data'
 import AddIcon from '@mui/icons-material/Add'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { ChangeEvent, useState } from 'react'
+import { Option } from "../../shared"
 
 export interface FoodItemDetailsProps {
   foodItem: FoodItem
 }
 
-//TODO: create options with radio buttons / add ac
 export const FoodItemDetails = ({ foodItem }: FoodItemDetailsProps) => {
-  const [meatOption, setMeatOption] = useState('');
+  const [option, setOption] = useState('');
+  const hasOptions = foodItem.options
 
   const addToFavorites = (foodItem: FoodItem) => {
     console.log(foodItem)
   }
 
-
-  const handleSelectMeat = (event: ChangeEvent<HTMLInputElement>) => {
-    setMeatOption((event.target as HTMLInputElement).value)
+  //TODO: fix same price selects all items with this price
+  const handleSelectOption = (event: ChangeEvent<HTMLInputElement>) => {
+    setOption((event.target as HTMLInputElement).value)
     console.log(event.target.value)
   }
-
-
-  //TODO: add options meat, price, spicy
 
   return (
     <CardStyled elevation={1}>
@@ -43,16 +41,53 @@ export const FoodItemDetails = ({ foodItem }: FoodItemDetailsProps) => {
           {foodItem.description}
         </Typography>
 
-        <FormControl>
-          <FormLabel>Select Meat or Seafood</FormLabel>
-          <RadioGroup
-            value={meatOption}
-            onChange={handleSelectMeat}
-          >
-            <FormControlLabel value="female" control={<Radio />} label="Female" />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-          </RadioGroup>
-        </FormControl>
+        <Grid container spacing={2}>
+          {!hasOptions &&
+            <Grid item>
+              <Typography variant='subtitle2'>{foodItem.prices?.find(p => p)} THB</Typography>
+            </Grid>
+          }
+          {hasOptions &&
+            <Grid item>
+              <FormControl>
+                <FormLabel>Select Option</FormLabel>
+                <RadioGroup
+                  value={option}
+                  onChange={handleSelectOption}
+                >
+                  {foodItem.options?.map((option: Option, index: number) =>
+                    <FormControlLabel
+                      key={index}
+                      control={<Radio />}
+                      label={<Typography variant='subtitle2'>{option.label} {option.value} THB</Typography>}
+                      value={option.value}
+                    />
+                  )}
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+          }
+          {foodItem.spicy?.length !== 0 &&
+            <Grid item>
+              <FormControl>
+                <FormLabel>Spicy Options</FormLabel>
+                <RadioGroup
+                  value={option}
+                  onChange={handleSelectOption}
+                >
+                  {foodItem.spicy?.map((spicy: string, index: number) =>
+                    <FormControlLabel
+                      key={index}
+                      control={<Radio />}
+                      label={<Typography variant='subtitle2'>{spicy}</Typography>}
+                      value={spicy}
+                    />
+                  )}
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+          }
+        </Grid>
 
       </CardContent>
       <CardActions>
@@ -63,14 +98,12 @@ export const FoodItemDetails = ({ foodItem }: FoodItemDetailsProps) => {
   )
 }
 
-
 const CardStyled = styled(Card)(({ theme }) => ({
   height: '100%',
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
   border: 'transparent',
-  borderRadius: theme.shape?.borderRadiusCard,
   '.MuiCardActions-root': {
     marginTop: 'auto',
   }

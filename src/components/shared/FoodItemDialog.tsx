@@ -14,7 +14,7 @@ export const FoodItemDialog = ({ foodItem, open, onClose }: FoodItemDialogProps)
 
   return (
     <Dialog
-      title={`${isEdit ? 'Edit' : 'Add'} FoodItem`}
+      title={foodItem.title}
       open={open || false}
       onClose={onClose}>
       <FoodItemDetails foodItem={foodItem} />

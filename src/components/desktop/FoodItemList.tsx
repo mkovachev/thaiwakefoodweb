@@ -11,7 +11,6 @@ export interface FoodItemListProps {
   foodItems: FoodItem[]
 }
 
-
 export const FoodItemList = ({ foodItems }: FoodItemListProps) => {
   const [open, setOpen] = useState(false)
   const [openRemove, setOpenRemove] = useState(false)
@@ -51,10 +50,10 @@ export const FoodItemList = ({ foodItems }: FoodItemListProps) => {
               image={foodItem.image}
               title={foodItem.title} />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant='h6'>
                 #{foodItem.id} {foodItem.title}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant='subtitle2'>
                 {foodItem.description}
               </Typography>
             </CardContent>

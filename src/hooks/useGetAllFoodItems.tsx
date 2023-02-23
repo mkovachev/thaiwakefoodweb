@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 import { FoodItem } from '../data';
+import { parseFoodItemList } from '../utils/parseFoodItemList';
 
 const getAllFoodItems = async (): Promise<FoodItem[]> => {
   const url = `${import.meta.env.VITE_SHEETSON_URL}/${import.meta.env.VITE_SPREADSHEET_MENU}`
@@ -10,12 +11,13 @@ const getAllFoodItems = async (): Promise<FoodItem[]> => {
   }
 
   const res = await axios.get(url, { params })
-  return res.data.results as FoodItem[]
+  const foodItems = parseFoodItemList(res.data.results)
+  return foodItems
 };
 
 export const useGetAllFoodItems = () => {
   return useQuery<FoodItem[], Error>(
-    ['all-food-items'],
+    ['food-items-list'],
     () => getAllFoodItems()
   )
 }

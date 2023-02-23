@@ -2,7 +2,7 @@ import { ImageListItem, ImageListItemBar, ImageList, styled, useMediaQuery, Butt
 import { FoodItem } from "../../data"
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import { theme } from "../../ui/theme"
-import { FoodOptions, SpicyOptions } from "../../shared"
+import { MeatOptions, SpicyOptions } from "../../shared"
 import { useState } from "react"
 import { Option } from "../../shared/Option"
 
@@ -20,7 +20,7 @@ export const Menu = ({ foodItems }: MenuProps) => {
     console.log('added to favorites')
   }
 
-  const handleFoodOptions = (event: any, option: Option) => {
+  const handleMeatOptions = (event: any, option: Option) => {
     if (option === null) setFoodOption('')
     setFoodOption(option.value)
   }
@@ -58,9 +58,9 @@ export const Menu = ({ foodItems }: MenuProps) => {
             subtitle={
               <OptionsBox gap={1}>
                 <AutocompleteStyled
-                  options={FoodOptions}
+                  options={MeatOptions}
                   renderInput={(params) => <TextField {...params} label='Meat or Sea food' />}
-                  onChange={(e, option) => option && handleFoodOptions(e, option as Option)}
+                  onChange={(e, option) => option && handleMeatOptions(e, option as Option)}
                 />
                 <AutocompleteStyled
                   options={SpicyOptions}

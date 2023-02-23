@@ -11,7 +11,7 @@ interface FoodItemRemoveDialogProps {
 
 export const FoodItemRemoveDialog = ({ foodItem, open, onClose, onDelete }: FoodItemRemoveDialogProps) => {
   return (
-    <Dialog title='Remove Item' open={open} onClose={onClose}>
+    <Dialog title={`Remove ${foodItem.title}`} open={open} onClose={onClose}>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
           Remove this item from favorites

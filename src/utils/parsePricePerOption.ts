@@ -1,12 +1,17 @@
+import { Option } from "../shared"
+
 interface Options {
-  [key: string]: number
+  [key: string]: string
 }
 
-export const parseOptionsWithPrice = (options: string[], prices: number[]) => {
-  const optionsWithPrice = options.reduce((res, item, index) => {
-    res[item] = prices[index]
-    return res
-  }, {} as Options)
+export const parseOptionsWithPrices = (options?: string[], prices?: string[]) => {
+  if (options && prices) {
+    const optionsWithPrices: Option[] = []
+    for (let i = 0; i < options.length; i++) {
+      optionsWithPrices.push({ label: options[i], value: prices[i] } as Option)
+    }
+    return optionsWithPrices
+  }
 
-  return optionsWithPrice
+  return null
 }
