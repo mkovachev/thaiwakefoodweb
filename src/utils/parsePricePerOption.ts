@@ -1,9 +1,5 @@
 import { Option } from "../shared"
 
-interface Options {
-  [key: string]: string
-}
-
 export const parseOptionsWithPrices = (options?: string[], prices?: string[]) => {
   if (options && prices) {
     const optionsWithPrices: Option[] = []
